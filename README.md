@@ -5,4 +5,4 @@ Sitefinity MVC widget using the infinite scroll Feather directive for loading it
 
 ![alt text][img]
 
-[img]: https://github.com/nzagorchev/Sitefinity.MvcInfiniteScroll/blob/master/infinite-scroll.png "Widget"
+[img]: https://github.com/nzagorchev/Sitefinity.MvcInfiniteScroll/blob/master/infinite-scroll.gif "Widget"
