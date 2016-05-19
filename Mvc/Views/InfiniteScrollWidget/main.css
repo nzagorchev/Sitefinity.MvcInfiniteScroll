@@ -1,0 +1,8 @@
+﻿.infinite-scroll-container {
+    height: 760px;
+    overflow-y: scroll;
+}
+
+.infinite-scroll-panel {
+    min-height: 250px;
+}

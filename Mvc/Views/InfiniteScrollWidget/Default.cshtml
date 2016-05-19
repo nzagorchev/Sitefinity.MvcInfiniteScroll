@@ -1,0 +1,40 @@
+@model SitefinityWebApp.Mvc.Models.InfiniteScrollWidgetModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+
+<h1>
+    @Html.Raw(Model.Heading)
+</h1>
+
+<div ng-app="InfiniteScrollWidgetApp" ng-controller="InfiniteScrollWidgetCtrl">
+    <div class="container infinite-scroll-container" sf-infinite-scroll="loadMoreItems()">
+        <div ng-repeat="item in items track by $index">
+            <div class="panel panel-default infinite-scroll-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{item.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    {{item.content}}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default" ng-show="noMoreItems">
+            <div class="panel-body text-center">
+                @Model.NoMoreItemsText
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-show="isLoading" class="sf-loading"><span></span></div>
+    </div>
+</div>
+
+@Html.StyleSheet(Url.WidgetContent("assets/dist/css/loading.min.css"), "bottom", false)
+@Html.StyleSheet(Url.WidgetContent("Mvc/Views/InfiniteScrollWidget/main.css"), "bottom", false)
+
+@Html.Script(Telerik.Sitefinity.Modules.Pages.ScriptRef.JQuery, "bottom")
+@Html.Script(Url.WidgetContent("Mvc/Scripts/Angular/angular.min.js"), "bottom", false)
+@Html.Script(Url.WidgetContent("client_components/collections/sf-infinite-scroll.js"), "bottom", false)
+@Html.Script(Url.WidgetContent("Mvc/Scripts/InfiniteScrollWidget/infinite-scroll-widget.js"), "bottom", false)
